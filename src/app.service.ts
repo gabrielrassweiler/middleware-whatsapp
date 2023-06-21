@@ -4,13 +4,9 @@ import * as XLSX from 'xlsx';
 
 @Injectable()
 export class AppService {
-  mensagemPadrao: string;
-
-  constructor() {
-    this.mensagemPadrao =
-      'Olá, quem está falando é a Júlia. Sou consultora comercial direto da fábrica aqui do grupo Alvo da Moda.' +
-      ' Você ficou sabendo da oportunidade que estamos oferecendo para as nossas clientes VIP?';
-  }
+  mensagemPadrao =
+    'Olá, quem está falando é a Júlia. Sou consultora comercial direto da fábrica aqui do grupo Alvo da Moda.' +
+    ' Você ficou sabendo da oportunidade que estamos oferecendo para as nossas clientes VIP?';
 
   async send(mensagem?: string) {
     console.log('\n- Começando envio -');
