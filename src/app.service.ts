@@ -56,7 +56,7 @@ export class AppService {
         // Atualiza coluna se foi numero esta correto ou nao
         dados[index][5] = 'sim';
 
-        await this.delay(2000);
+        await this.delay(5000);
       } catch (e) {
         console.error(
           `\n -- ERRO AO ENVIAR [Código cliente: ${cliente[0]}, Fone: ${phone}]. Detalhes: ${e.message} -- `,
@@ -82,11 +82,11 @@ export class AppService {
     XLSX.utils.book_append_sheet(
       updatedWorkbook,
       updatedWorksheet,
-      'RelCliente',
+      'RelClienteAtualizada',
     );
 
     // Salvar o arquivo XLSX atualizado
-    XLSX.writeFile(updatedWorkbook, 'src/clientes/RelCliente.xlsx');
+    XLSX.writeFile(updatedWorkbook, 'src/clientes/RelClienteAtualizada.xlsx');
   }
 
   async delay(time: number) {
