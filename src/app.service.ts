@@ -45,7 +45,7 @@ export class AppService {
             '&text=' +
             mensagem ?? this.mensagemPadrao,
         );
-        await this.delay(5000);
+        await this.delay();
 
         await page.click("span[data-testid='send']");
         console.log(
@@ -56,7 +56,7 @@ export class AppService {
         // Atualiza coluna se foi numero esta correto ou nao
         dados[index][5] = 'sim';
 
-        await this.delay(5000);
+        await this.delay();
       } catch (e) {
         console.error(
           `\n -- ERRO AO ENVIAR [Código cliente: ${cliente[0]}, Fone: ${phone}]. Detalhes: ${e.message} -- `,
@@ -89,9 +89,11 @@ export class AppService {
     XLSX.writeFile(updatedWorkbook, 'src/clientes/RelClienteAtualizada.xlsx');
   }
 
-  async delay(time: number) {
+  async delay(time?: number) {
+    const tempo = time ?? Math.random() * (9 - 4) + 4;
+
     return new Promise(function (resolve) {
-      setTimeout(resolve, time);
+      setTimeout(resolve, tempo);
     });
   }
 }
